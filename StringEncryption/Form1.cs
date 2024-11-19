@@ -10,8 +10,8 @@ namespace StringEncryption
             InitializeComponent();
         }
 
-        
-         
+
+        // Encrypt Fun
         public string Encrypt(string inputText, int key)
         {
             char[] encryptedChars = new char[inputText.Length];
@@ -22,7 +22,7 @@ namespace StringEncryption
             return new string(encryptedChars);
         }
 
-   
+        // Decrypt method
         public string Decrypt(string encryptedText, int key)
         {
              
