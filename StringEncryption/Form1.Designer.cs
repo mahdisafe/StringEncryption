@@ -44,6 +44,7 @@
             // 
             txtEncrypted.Location = new Point(12, 32);
             txtEncrypted.Name = "txtEncrypted";
+            txtEncrypted.ReadOnly = true;
             txtEncrypted.Size = new Size(503, 27);
             txtEncrypted.TabIndex = 0;
             // 
@@ -78,20 +79,22 @@
             txtKey.Name = "txtKey";
             txtKey.Size = new Size(503, 27);
             txtKey.TabIndex = 4;
+            txtKey.Text = "20252025";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(12, 115);
             label2.Name = "label2";
-            label2.Size = new Size(50, 20);
+            label2.Size = new Size(83, 20);
             label2.TabIndex = 5;
-            label2.Text = "txtKey";
+            label2.Text = "Encript Key";
             // 
             // txtDecrypted
             // 
             txtDecrypted.Location = new Point(12, 199);
             txtDecrypted.Name = "txtDecrypted";
+            txtDecrypted.ReadOnly = true;
             txtDecrypted.Size = new Size(503, 27);
             txtDecrypted.TabIndex = 6;
             // 
@@ -112,7 +115,7 @@
             btnDecrypt.TabIndex = 8;
             btnDecrypt.Text = "Decrypt";
             btnDecrypt.UseVisualStyleBackColor = true;
-            btnDecrypt.Click += btnDecrypt_Click_Click;
+            btnDecrypt.Click += btnDecrypt_Click;
             // 
             // btnEncrypt
             // 

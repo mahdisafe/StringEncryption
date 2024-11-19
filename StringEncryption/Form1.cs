@@ -10,60 +10,84 @@ namespace StringEncryption
             InitializeComponent();
         }
 
-        // Encrypts the input string using a simple cipher with a provided key
-        private string Encrypt(string input, int key)
+        
+         
+        public string Encrypt(string inputText, int key)
         {
-            char[] encryptedChars = new char[input.Length];
-
-            for (int i = 0; i < input.Length; i++)
+            char[] encryptedChars = new char[inputText.Length];
+            for (int i = 0; i < inputText.Length; i++)
             {
-                // Shift each character based on the key
-                encryptedChars[i] = (char)(input[i] + key);
+                encryptedChars[i] = (char)(inputText[i] + key);  
             }
-
             return new string(encryptedChars);
         }
 
-        // Decrypts the encrypted string using the same key
-        private string Decrypt(string encrypted, int key)
+   
+        public string Decrypt(string encryptedText, int key)
         {
-            char[] decryptedChars = new char[encrypted.Length];
-
-            for (int i = 0; i < encrypted.Length; i++)
+             
+            if (string.IsNullOrEmpty(encryptedText))
             {
-                // Reverse the shift to decrypt
-                decryptedChars[i] = (char)(encrypted[i] - key);
+                return encryptedText;
             }
 
+            char[] decryptedChars = new char[encryptedText.Length];
+            for (int i = 0; i < encryptedText.Length; i++)
+            {
+                decryptedChars[i] = (char)(encryptedText[i] - key); 
+            }
             return new string(decryptedChars);
         }
 
- 
 
 
-        private void btnDecrypt_Click_Click(object sender, EventArgs e)
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            // Get the encrypted text and key from the textboxes
-            string encryptedText = txtEncrypted.Text;
-            int key = Convert.ToInt32(txtKey.Text);
+            try
+            {
+              
+                string encryptedText = txtEncrypted.Text;
 
-            // Decrypt the string
-            string decryptedText = Decrypt(encryptedText, key);
+               
+                if (string.IsNullOrEmpty(encryptedText))
+                {
+                    MessageBox.Show("Please provide an encrypted text to decrypt.");
+                    return;
+                }
 
-            // Display the decrypted text
-            txtDecrypted.Text = decryptedText;
+              
+                if (int.TryParse(txtKey.Text, out int key))
+                {
+                   
+                    string decryptedText = Decrypt(encryptedText, key);
+
+                   
+                    txtDecrypted.Text = decryptedText;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid numeric key.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle unexpected errors
+                MessageBox.Show("Error during decryption: " + ex.Message);
+            }
         }
+
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-            // Get the input text and key from the textboxes
+             
             string plainText = Input.Text;
             int key = Convert.ToInt32(txtKey.Text);
 
-            // Encrypt the string
+          
             string encryptedText = Encrypt(plainText, key);
 
-            // Display the encrypted text
+            
             txtEncrypted.Text = encryptedText;
         }
     }
