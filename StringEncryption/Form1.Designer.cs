@@ -30,7 +30,7 @@
         {
             txtEncrypted = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtInput = new TextBox();
             Input = new Label();
             txtKey = new TextBox();
             label2 = new Label();
@@ -57,12 +57,12 @@
             label1.TabIndex = 1;
             label1.Text = "Encrypted";
             // 
-            // textBox1
+            // txtInput
             // 
-            textBox1.Location = new Point(12, 85);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(503, 27);
-            textBox1.TabIndex = 2;
+            txtInput.Location = new Point(12, 85);
+            txtInput.Name = "txtInput";
+            txtInput.Size = new Size(503, 27);
+            txtInput.TabIndex = 2;
             // 
             // Input
             // 
@@ -139,7 +139,7 @@
             Controls.Add(label2);
             Controls.Add(txtKey);
             Controls.Add(Input);
-            Controls.Add(textBox1);
+            Controls.Add(txtInput);
             Controls.Add(label1);
             Controls.Add(txtEncrypted);
             Name = "FrmMain";
@@ -152,7 +152,7 @@
 
         private TextBox txtEncrypted;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtInput;
         private Label Input;
         private TextBox txtKey;
         private Label label2;

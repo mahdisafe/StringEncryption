@@ -80,15 +80,17 @@ namespace StringEncryption
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-             
-            string plainText = Input.Text;
-            int key = Convert.ToInt32(txtKey.Text);
 
-          
-            string encryptedText = Encrypt(plainText, key);
-
-            
-            txtEncrypted.Text = encryptedText;
+            string inputText = txtInput.Text;
+            if (int.TryParse(txtKey.Text, out int key))
+            {
+                string encryptedText = Encrypt(inputText, key);
+                txtEncrypted.Text = encryptedText; // Display encrypted text
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid key!");
+            }
         }
     }
 }
